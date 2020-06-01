@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -32,6 +33,11 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html',
+      hash: true,
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/bundle.css'
     }),
